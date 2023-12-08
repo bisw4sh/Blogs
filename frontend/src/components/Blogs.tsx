@@ -19,7 +19,9 @@ export default function Blogs() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await fetch('/api')
+        const data = await fetch(
+          "https://api.render.com/deploy/srv-clpkpe1oh6hc73c5vps0?key=MdAB4HJKc_Y/api"
+        );
         const parsedData: DataArr[] = await data.json()
         setDataArr(parsedData)
       } catch (error) {
