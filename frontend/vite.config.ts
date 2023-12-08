@@ -6,12 +6,13 @@ import * as path from 'path';
 export default defineConfig({
   plugins: [react()],
   resolve: {
-    alias: [{ find: "@", replacement: path.resolve(__dirname, 'src') }],
+    alias: [{ find: "@", replacement: path.resolve(__dirname, "src") }],
   },
   server: {
     proxy: {
       "/api": {
-        target: "http://localhost:8080/api",
+        target:
+          "https://api.render.com/deploy/srv-clpkpe1oh6hc73c5vps0?key=MdAB4HJKc_Y/api",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ""),
       },
