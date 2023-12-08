@@ -12,7 +12,7 @@ export default defineConfig({
     proxy: {
       "/api": {
         target:
-          "https://api.render.com/deploy/srv-clpkpe1oh6hc73c5vps0?key=MdAB4HJKc_Y/api",
+          "https://api.render.com/deploy/srv-clpkpe1oh6hc73c5vps0?key=MdAB4HJKc_Y",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ""),
       },
