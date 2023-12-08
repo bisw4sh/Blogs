@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Blog from "./Blog";
+import loadingSvg from '../../public/loading.svg'
 
 type DataArr = {
   id : number;
@@ -8,6 +9,7 @@ type DataArr = {
   category: string;
   img: string;
   date: string;
+  content: string;
 };
 
 export default function Blogs() {
@@ -32,19 +34,27 @@ export default function Blogs() {
   return (
     <div>
       <ul>
-        {(dataArr !== null) ? (dataArr?.map(
-          ({id, title, author, category, img, date }) => (
-            <Blog
-              key={id}
-              id={id}
-              title={title}
-              author={author}
-              category={category}
-              img={img}
-              date={date}
-            />
+        {dataArr !== null ? (
+          dataArr?.map(
+            ({ id, title, author, category, img, date, content }) => (
+              <Blog
+                key={id}
+                id={id}
+                title={title}
+                author={author}
+                category={category}
+                img={img}
+                date={date}
+                content={content}
+              />
+            )
           )
-        )) : ( 'It is loading')}
+        ) : (
+          <img
+            className="self-center h-16 animate-spin"
+            src={loadingSvg}
+          />
+        )}
       </ul>
     </div>
   );
