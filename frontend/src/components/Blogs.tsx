@@ -19,9 +19,7 @@ export default function Blogs() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await fetch(
-          "/api"
-        );
+        const data = await fetch("https://blogs-backedn.onrender.com/api");
         const parsedData: DataArr[] = await data.json()
         setDataArr(parsedData)
       } catch (error) {
