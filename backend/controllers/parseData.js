@@ -16,11 +16,9 @@ export default async function parseData() {
       const src = path.join(process.cwd(), "assets/markdowns", file);
       const fileData = await fs.readFile(src, "utf8");
       const parsedData = matter(fileData);
-      // const content = parsedData.content.replace(/[\r\n]/g, "");
       const content = parsedData.content;
       const htmlContent = converter.makeHtml(content);
 
-      console.log(file.slice(0, -3));
       const index = parseInt(file.slice(0, -3));
 
       // Read the image file as a buffer
@@ -38,7 +36,7 @@ export default async function parseData() {
         content: htmlContent,
       });
 
-      console.log(dataArr);
+      // console.log(dataArr);
     }
   } catch (err) {
     console.log(err);

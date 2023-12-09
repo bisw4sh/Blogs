@@ -25,8 +25,7 @@ export default function Blog({
     `data:image/png;base64,${img}`;
   const sanitizedContent = DOMPurify.sanitize(content);
 
-
-    console.log(content)
+    // console.log(content)
 
   return (
     <div className="w-full flex justify-center items-center" onClick={ () => setShow(!show)}>
