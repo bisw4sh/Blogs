@@ -8,14 +8,14 @@ export default defineConfig({
   resolve: {
     alias: [{ find: "@", replacement: path.resolve(__dirname, "src") }],
   },
-  // server: {
-  //   proxy: {
-  //     "/api": {
-  //       target:
-  //         "https://api.render.com/deploy/srv-clpkpe1oh6hc73c5vps0?key=MdAB4HJKc_Y/api",
-  //       changeOrigin: true,
-  //       rewrite: (path) => path.replace(/^\/api/, ""),
-  //     },
-  //   },
-  // },
+  server: {
+    proxy: {
+      "/api": {
+        target:
+          "http://localhost:8080/api",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ""),
+      },
+    },
+  },
 });
