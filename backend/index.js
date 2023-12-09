@@ -14,8 +14,22 @@ app.use(
       "https://blogs-frontedn.onrender.com/",
       "https://blogs-frontedn.onrender.com/api",
     ],
+    credentials : true
   })
 );
+
+app.all("*", function (req, res, next) {
+  let origin = req.headers.origin;
+  if (cors.origin.indexOf(origin) >= 0) {
+    res.header("Access-Control-Allow-Origin", origin);
+  }
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
+
 app.use(express.json());
 app.use(express.static("assets/img"));
 
