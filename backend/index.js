@@ -7,33 +7,16 @@ dotenv.config();
 const app = express();
 app.use(
   cors(
-    // {origin: [
-    //   "https://api.render.com",
-    //   "http://api.render.com",
-    //   "http://localhost:8080",
-    //   "https://blogs-frontedn.onrender.com/",
-    //   "https://blogs-frontedn.onrender.com/api",
-    // ],
-    // credentials: true,}
+    {origin: [
+      "https://api.render.com",
+      "http://api.render.com",
+      "http://localhost:8080",
+      "https://blogs-frontedn.onrender.com/",
+      "https://blogs-frontedn.onrender.com/api",
+    ],
+    credentials: true,}
   )
 );
-
-app.use(function (req, res, next) {
-  res.setHeader(
-    "Access-Control-Allow-Origin",
-    "https://blogs-frontedn.onrender.com"
-  );
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
-  );
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "X-Requested-With,content-type, Accept"
-  );
-  res.setHeader("Access-Control-Allow-Credentials", true);
-  next();
-});
 
 app.use(express.json());
 app.use(express.static("assets/img"));
