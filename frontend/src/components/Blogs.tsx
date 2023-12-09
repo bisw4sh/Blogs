@@ -19,7 +19,7 @@ export default function Blogs() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await fetch("https://blogs-frontedn.onrender.com//api");
+        const data = await fetch("https://blogs-frontedn.onrender.com/api");
         const parsedData: DataArr[] = await data.json()
         setDataArr(parsedData)
       } catch (error) {
