@@ -11,8 +11,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target:
-          "http://localhost:8080/api",
+        target: "https://blogs-backedn.onrender.com",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ""),
       },
