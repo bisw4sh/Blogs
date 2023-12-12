@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get("/", async(req, res) => {
   const parsedData = await parseData();
-  res.send(JSON.stringify(parsedData));
+  res.json(parsedData);
 });
 
 export default router;
