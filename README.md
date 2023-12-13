@@ -10,6 +10,12 @@ Each directory contains its own codebase.
 
 ## Installation and Usage
 
+There are 2 branches, main has code for dev server & production as implied.
+Clone the repo
+```
+git clone -b <branchname> https://github.com/bisw4sh/Blogs.git
+```
+
 To get started, follow these steps in 2 different terminals:
 
 ### 1. Backend Directory

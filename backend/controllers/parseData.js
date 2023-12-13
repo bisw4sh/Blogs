@@ -36,7 +36,6 @@ export default async function parseData() {
         content: htmlContent,
       });
 
-      // console.log(dataArr);
     }
   } catch (err) {
     console.log(err);
