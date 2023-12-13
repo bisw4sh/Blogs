@@ -42,11 +42,11 @@ export default function SingleBlog() {
   const sanitizedContent = DOMPurify.sanitize(dataObj.content);
 
   return (
-    <div className="h-screen py-4 flex justify-center items-center">
+    <div className="min-h-[96vh] py-4 flex justify-center items-center">
       <div className="w-full flex justify-center items-center">
         <li
           key={dataObj.id}
-          className="bg-slate-700 m-4 p-4 rounded-lg text-white flex justify-center items-center gap-3 w-5/6 max-md:w-full"
+          className="bg-slate-700 m-4 p-4 rounded-lg text-white flex max-md:flex-col justify-center items-center gap-3 w-5/6 max-md:w-full"
         >
           <img
             src={handleImageReq(dataObj.img) || placeholderImg}

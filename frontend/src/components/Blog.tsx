@@ -48,7 +48,7 @@ export default function Blog({
           <p>Author: {author}</p>
           <p>Category: {category}</p>
           <p>Date: {date.slice(0, 10)}</p>
-          <Link to={`/singleblog/${id}`} className='text-teal-500'>See More</Link>
+          <Link to={`/singleblog/${id}`} className='text-teal-500 text-lg font-md'>See More</Link>
           <p
             className={`sanitizedContent bg-slate-800 p-2 rounded-xl ${
               !show ? "hidden" : ""
