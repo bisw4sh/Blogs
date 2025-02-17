@@ -1,15 +1,19 @@
-import * as fs from "node:fs/promises";
+import fs from "node:fs/promises";
 import path from "node:path";
 import matter from "gray-matter";
 import showdown from "showdown";
+import url from "node:url";
 
 const converter = new showdown.Converter();
 
+const __filename = url.fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 export default async function parseData() {
-  let dataArr = [];
+  const dataArr = [];
   try {
     const files = await fs.readdir(
-      path.join(process.cwd(), "assets/markdowns")
+      path.join(__dirname, "..", "assets/markdowns")
     );
 
     for (const file of files) {
@@ -19,7 +23,7 @@ export default async function parseData() {
       const content = parsedData.content;
       const htmlContent = converter.makeHtml(content);
 
-      const index = parseInt(file.slice(0, -3));
+      const index = Number.parseInt(file.slice(0, -3));
 
       // Read the image file as a buffer
       const imgBuffer = await fs.readFile(
@@ -35,7 +39,6 @@ export default async function parseData() {
         date: parsedData.data.date,
         content: htmlContent,
       });
-
     }
   } catch (err) {
     console.log(err);

@@ -10,10 +10,9 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/:id", async (req, res) => {
-  const id = parseInt(req.params.id);
+  const id = Number.parseInt(req.params.id);
 
-  if (isNaN(id)) {
-    // Handle invalid parameter error
+  if (Number.isNaN(id)) {
     return res.status(400).json({ error: "Invalid parameter provided." });
   }
 
