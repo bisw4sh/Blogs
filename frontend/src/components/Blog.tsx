@@ -1,7 +1,8 @@
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 import placeholderImg from "/placeholder.webp";
 import DOMPurify from "dompurify";
 import { useState } from "react";
+
 type Props = {
   id: number;
   title: string;
@@ -26,8 +27,6 @@ export default function Blog({
     `data:image/png;base64,${img}`;
   const sanitizedContent = DOMPurify.sanitize(content);
 
-  // console.log(content)
-
   return (
     <div
       className="w-full flex justify-center items-center"
@@ -48,11 +47,18 @@ export default function Blog({
           <p>Author: {author}</p>
           <p>Category: {category}</p>
           <p>Date: {date.slice(0, 10)}</p>
-          <Link to={`/singleblog/${id}`} className='text-teal-500 text-lg font-md'>See More</Link>
+          <Link
+            to={`/singleblog/${id}`}
+            className="text-teal-500 text-lg font-md"
+          >
+            See More
+          </Link>
           <p
             className={`sanitizedContent bg-slate-800 p-2 rounded-xl ${
               !show ? "hidden" : ""
             }`}
+            // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
+            // biome-ignore lint/security/noDangerouslySetInnerHtmlWithChildren: <explanation>
             dangerouslySetInnerHTML={{ __html: sanitizedContent }}
           >
             {/* Content: <br /> {sanitizedContent} */}

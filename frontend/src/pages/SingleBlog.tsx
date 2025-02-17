@@ -21,7 +21,7 @@ export default function SingleBlog() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await fetch("/api/" + extractedText);
+        const data = await fetch(`/api/${extractedText}`);
         const parsedData = await data.json();
         setDataObj(parsedData);
       } catch (error) {
@@ -60,7 +60,8 @@ export default function SingleBlog() {
             <p>Category: {dataObj.category}</p>
             <p>Date: {dataObj.date.slice(0, 10)}</p>
             <p
-              className={`sanitizedContent p-2 rounded-xl`}
+              className={"sanitizedContent p-2 rounded-xl"}
+              // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
               dangerouslySetInnerHTML={{ __html: sanitizedContent }}
             />
           </div>
