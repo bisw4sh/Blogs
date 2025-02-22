@@ -17,7 +17,7 @@ export default async function parseData() {
     );
 
     for (const file of files) {
-      const src = path.join(process.cwd(), "assets/markdowns", file);
+      const src = path.join(__dirname, "assets/markdowns", "..", file);
       const fileData = await fs.readFile(src, "utf8");
       const parsedData = matter(fileData);
       const content = parsedData.content;
