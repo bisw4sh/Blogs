@@ -1,6 +1,9 @@
 import express from "express";
 import dataRoute from "./routes/getData.js";
+import path from "node:path";
+import url from "node:url"
 
+export const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 const app = express();
 app.use(express.json());
 

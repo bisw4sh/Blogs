@@ -2,6 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import matter from "gray-matter";
 import showdown from "showdown";
+import { __dirname } from "../index.js";
 
 const converter = new showdown.Converter();
 
@@ -9,7 +10,7 @@ export default async function singleMarkdown(id) {
   let responseObj = {};
   try {
     const fileData = await fs.readFile(
-      path.join(process.cwd(), "assets/markdowns", `${id}.md`),
+      path.join(__dirname, "assets", "markdowns", `${id}.md`),
       "utf8"
     );
 

@@ -2,22 +2,17 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import matter from "gray-matter";
 import showdown from "showdown";
-import url from "node:url";
+import { __dirname } from "../index.js";
 
 const converter = new showdown.Converter();
-
-const __filename = url.fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 export default async function parseData() {
   const dataArr = [];
   try {
-    const files = await fs.readdir(
-      path.join(__dirname, "..", "assets/markdowns")
-    );
+    const files = await fs.readdir(path.join(__dirname, "assets", "markdowns"));
 
     for (const file of files) {
-      const src = path.join(__dirname, "assets/markdowns", "..", file);
+      const src = path.join(__dirname, "assets", "markdowns", file);
       const fileData = await fs.readFile(src, "utf8");
       const parsedData = matter(fileData);
       const content = parsedData.content;

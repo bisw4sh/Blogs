@@ -4,7 +4,7 @@ import singleMarkdown from "../controllers/singleMarkdown.js";
 
 const router = express.Router();
 
-router.get("/", async (req, res) => {
+router.get("/", async (_req, res) => {
   const parsedData = await parseData();
   res.json(parsedData);
 });
